@@ -1,19 +1,13 @@
-<<<<<<< HEAD
-resource "aws_s3_bucket" "example" {
-  bucket = "my-unique-bucketzxcvbnm"
-
-  tags = {
-    Name = "My Unique S3 Bucket"
-    Environment = "dev"
-   }
+provider "aws" {
+  region = var.aws_region
 }
-=======
-resource "aws_instance" "example" {
-  ami           = "ami-00c257e12d6828491"  # Replace with an Amazon Linux or Ubuntu AMI ID
-  instance_type = "t2.micro"  # This works for general-purpose AMIs
+
+resource "aws_vpc" "main" {
+  cidr_block = var.vpc_cidr
 
   tags = {
-    Name = "MyLinuxInstance"
+    Name = var.vpc_name
   }
 }
->>>>>>> 6896ac3 (commits)
+
+
